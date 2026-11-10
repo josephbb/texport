@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Build searchable guides and a Python reference from docstrings with Sphinx, and publish automatically through GitHub Pages.
+
 ## 0.1.0
 
 - Export in-text values as LaTeX commands with unrounded JSON sidecars, figures in multiple formats, and pandas or raw LaTeX tables with CSV sidecars.

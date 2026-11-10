@@ -6,12 +6,12 @@ Requires Python 3.10 or newer. The core number writer has no third-party depende
 
 ## Install
 
-Install from GitHub using an account with access to the private repository and an SSH key configured for GitHub:
+Install from GitHub:
 
 ```sh
-uv add "texport[all] @ git+ssh://git@github.com/josephbb/texport.git@v0.1.0"
+uv add "texport[all] @ git+https://github.com/josephbb/texport.git@v0.1.0"
 # Or:
-pip install "texport[all] @ git+ssh://git@github.com/josephbb/texport.git@v0.1.0"
+pip install "texport[all] @ git+https://github.com/josephbb/texport.git@v0.1.0"
 ```
 
 Use `[figures]` or `[tables]` instead of `[all]` to install only the corresponding optional dependencies. Omit extras to export numbers alone.
@@ -139,7 +139,20 @@ The example calculates a fitted slope, bootstrap interval, and normal-approximat
 
 Tests include Hypothesis properties and actual LaTeX compilation. Compilation tests skip when `pdflatex` is unavailable; install LaTeX with `graphicx`, `booktabs`, and `multirow` to run them. Use `uv run pytest -m "not latex"` for the Python-only suite. CI runs the full suite on Python 3.10 and 3.14 with LaTeX installed.
 
-See the [API reference](docs/api.md), [LaTeX guide](docs/latex.md), and [changelog](CHANGELOG.md).
+Read the [documentation website](https://joebakcoleman.com/texport/),
+[API guide](docs/api.md), [LaTeX guide](docs/latex.md), and [changelog](CHANGELOG.md).
+
+Build a searchable documentation website, including the Python reference generated
+from docstrings:
+
+```sh
+uv run --no-default-groups --group docs sphinx-build -b html -W --keep-going docs docs/_build/html
+```
+
+The documentation workflow checks pull requests and automatically publishes
+successful builds on `main` to GitHub Pages. See the
+[documentation publishing guide](docs/development.md) for details and the local
+preview command.
 
 ## License
 

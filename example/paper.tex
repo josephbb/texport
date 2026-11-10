@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+% Load the generated index after your own package declarations.
+\input{artifacts/artifacts.tex}
+
+\begin{document}
+
+We analysed \nObs{} observations. The estimated slope was
+\outcomeOneBetaMean{} (95\% CI \outcomeOneBetaLow{} to \outcomeOneBetaHigh{}),
+\(p =\) \outcomeOneTestP{}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\linewidth]{scatter}
+  \caption{Scatter plot with fitted line.}
+\end{figure}
+
+\arttable{summary}
+
+\end{document}
